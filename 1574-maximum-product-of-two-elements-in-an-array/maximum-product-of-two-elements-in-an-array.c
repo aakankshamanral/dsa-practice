@@ -1,11 +1,15 @@
 int maxProduct(int* nums, int numsSize) {
-    int max = 0 ; 
+    int max1 = 0 , max2 = 0 ; 
     for ( int i = 0 ; i < numsSize ; i++){
-        for( int j = i+1 ; j< numsSize ; j++){ 
-            int ans = (nums[i]-1)*(nums[j]-1);
-            if (ans > max) max = ans;
+        if(nums[i]>max1){
+            max2 = max1;
+            max1 = nums[i];
+        }
+        else if (nums[i]>max2){
+            max2 = nums[i];
         }
     }
 
-    return max;
+    return (max1-1)*(max2-1);
+
 }
