@@ -1,6 +1,9 @@
 int peakIndexInMountainArray(int* arr, int arrSize) {
-    for(int i = 1 ; i<arrSize-1 ; i++){
-        if(arr[i]>arr[i+1] && arr[i]>arr[i-1]) return i;;
+    int low = 0 , high = arrSize-1;
+    while(low<high){
+        int mid = low + (high-low)/2;
+        if(arr[mid]<arr[mid+1]) low = mid+1;
+        else high = mid;
     }
-    return -1 ;
+    return low;
 }
